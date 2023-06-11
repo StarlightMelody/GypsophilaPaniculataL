@@ -2,4 +2,11 @@
   <Properties Name="Visual Studio">
     <Property Name="OpenWith" Value="17" />
   </Properties>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Samples\DotNETCoreUWP\DotNETCoreUWP.csproj">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
 </Solution>
