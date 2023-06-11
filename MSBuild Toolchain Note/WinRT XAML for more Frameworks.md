@@ -1,5 +1,10 @@
 # WinRT XAML for more Frameworks
 
+> [!NOTE]
+> - Target:
+>     - .NET Framework 4.5 +
+>     - .NET Core 3.0 ~ 3.1
+
 ## Common UWP project settings
 ```XML
 <PropertyGroup>
@@ -46,14 +51,14 @@
 
 ## Sample
 
-### UWP on .NET Core 3.1
+### UWP on .NET Framework 4.8.1 or .NET Core 3.1
 - ProjectName.csproj
 ```XML
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net481;netcoreapp3.1</TargetFramework>
     <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.26100.0</TargetPlatformMinVersion>
     <Platforms>x64</Platforms>
