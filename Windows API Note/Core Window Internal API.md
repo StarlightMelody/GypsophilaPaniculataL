@@ -2,6 +2,56 @@
 
 ## runtimeclass Windows.UI.Core.CoreWindow
 
+```C#
+namespace Windows.UI.Core
+{
+    [version(NTDDI_WIN8)]
+    runtimeclass CoreWindow
+    {
+        [default] interface Windows.UI.Core.ICoreWindow; //public
+        [version(NTDDI_WIN10)] interface Windows.UI.Core.ICoreWindow2; //public
+        [version()] interface Windows.UI.Core.ICoreWindow3; //public
+        [version()] interface Windows.UI.Core.ICoreWindow4; //public
+        [version()] interface Windows.UI.Core.ICoreWindow5; //public
+        [version(NTDDI_WINBLUE)] interface Windows.Phone.UI.Core.ICoreWindowKeyboardInput; //public
+        [version(NTDDI_WIN10)] interface Windows.UI.Core.ICorePointerRedirector; //public
+        [version()] interface Windows.UI.Core.ICoreWindowWithContext; //public
+        [version()] interface Windows.UI.Core.ICoreWindow6;
+        [version()] interface Windows.UI.IWindowContextPartner;
+        [version()] interface Windows.UI.Core.ICoreWindow_CompositionIslands;
+        interface Windows.UI.Core.IInternalCoreWindow;
+        [version(NTDDI_WIN10)] interface Windows.UI.Core.IInternalCoreWindow2;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow3;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow4;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow5;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow6;
+        [version(NTDDI_WINBLUE)] interface Windows.UI.Core.IInternalCoreWindowPhone;
+        [version(NTDDI_WINBLUE)] interface Windows.UI.Core.ITextInputConsumer;
+        [version()] interface Windows.UI.Core.IInternalCoreWindowFocus;
+        [version()] interface Windows.UI.Core.ILastInputEventTimestamp;
+        interface ICoreWindowInterop; //public
+        interface IPrivateCoreWindow;
+        [version(NTDDI_WIN10)] interface ICoreWindowComponentInterop; //public
+        [version(NTDDI_WIN10)] interface Windows.UI.Composition.ICompositionTargetHostPartner;
+        [version(NTDDI_WIN10)] interface Windows.UI.Core.ICoreAccelerators;
+        [version(NTDDI_WIN10)] interface Windows.UI.Core.IComponentFocus;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow_CompositionIslands;
+        [version()] interface Windows.UI.Core.IInternalCoreWindow_Occlusion;
+        [version()] interface Windows.UI.Core.IInternalImmersiveWindow;
+        [version()] interface Windows.UI.Core.ICoordinateConversion;
+        [version()] interface Windows.UI.Core.IInternalCoreWindowUninitialize;
+        [version()] interface Windows.UI.Core.IInputSiteProvider;
+        [version()] interface Windows.UI.Core.IInternalDirectManipulationInterop;
+        [version()] interface Windows.UI.Internal.Core.IInternalCoreWindow_MouseListener;
+        [version()] interface Windows.UI.Core.IInternalWindowAggregate;
+        [version()] interface ICoreWindowAdapterInterop; //public
+        [version()] interface Windows.UI.Core.IFrameworkViewTypeOwner;
+        [version()] interface Windows.UI.Core.IInternalWindowMonitor;
+    }
+}
+```
+
+
 ### interface IPrivateCoreWindow
 
 > [!CAUTION]
