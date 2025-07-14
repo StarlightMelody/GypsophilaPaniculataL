@@ -1,4 +1,4 @@
-# WinRT XAML Presenter
+# XAML Presenter Internal API
 
 ## runtimeclass Windows.UI.Xaml.Hosting.XamlPresenter
 - Implementation:

@@ -1,4 +1,4 @@
-﻿# WinRT XAML Controls Internal API
+﻿# XAML Controls Internal API
 
 ## Windows.UI.Xaml.UIElement
 

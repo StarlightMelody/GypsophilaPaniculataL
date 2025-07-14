@@ -1,4 +1,4 @@
-# WinRT XAML Application Internal API
+# XAML Application Internal API
 
 ## runtimeclass Windows.UI.Xaml.Application
 

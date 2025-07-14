@@ -1,4 +1,4 @@
-# WinRT XAML Islands Internal API
+# XAML Islands Internal API
 
 ## runtimeclass Windows.UI.Xaml.Hosting.XamlIsland
 > [!NOTE]
