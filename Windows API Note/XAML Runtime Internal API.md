@@ -36,12 +36,16 @@ namespace Windows.UI.Xaml.Hosting
 
 #### interface Windows.UI.Xaml.Hosting.IXamlRuntimeSite
 
+> [!NOTE]
+> Its GUID is found in ViewDefinitionBase::_EnsureSiteInitialized where in the DLLs(e.g. Windows.UI.CredDialogController.dll) which uses Windows.Internal.UI.XAMLHost.XAMLHostWindow.
+
 > [!TIP]
 > IXamlRuntimeSite is defined in Windows.UI.Xaml.dll without implementation.
 
 ```MIDL
 namespace Windows.UI.Xaml.Hosting
 {
+    [uuid(1C35E215-859E-41A3-922B-303B8699A29D)]
     [version(NTDDI_WINBLUE)]
     interface IXamlRuntimeSite : IInspectable{ }
 }
