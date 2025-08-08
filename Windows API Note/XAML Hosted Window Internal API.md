@@ -1,4 +1,4 @@
-# XAML Hosted Window Internal API
+﻿# XAML Hosted Window Internal API
 
 ## runtimeclass Windows.Internal.UI.Dialogs.XamlHostedDialog
 
@@ -184,6 +184,101 @@ namespace Windows.Internal.UI.Dialogs
         String GlyphFont{ get; set; };
         [version(NTDDI_WIN10_NI)] Windows.UI.Xaml.UIElement InnerXamlContent{ get; set; };
         [version(NTDDI_WIN10_NI)] String Hyperlink{ get; set; };
+    }
+}
+```
+
+
+### Build 22000 Insider Version
+
+> [!CAUTION]
+> **API Break:** In Build 22000 Insider Version, the declaration of this interface updated by LCU. The following declaration is excerpted from Build 22000.1.
+
+```C#
+namespace Windows.Internal.UI.Dialogs
+{
+    [flags]
+    [version(NTDDI_WIN10_CO)]
+    enum HostedDialogType
+    {
+        HostedDialog = 0,
+        HostedMessageDialog = 1
+    };
+
+    [exclusiveto(Windows.Internal.UI.Dialogs.XamlHostedDialogCommandInvokedArgs)]
+    [uuid("A8914AB1-A808-56DB-A0FD-1F147C041ADD")]
+    [version(NTDDI_WIN10_CO)]
+    interface IXamlHostedDialogCommandInvokedArgs{ }
+
+    [version(NTDDI_WIN10_CO)]
+    runtimeclass XamlHostedDialogCommandInvokedArgs
+    {
+        [default] interface IXamlHostedDialogCommandInvokedArgs;
+    }
+
+    [exclusiveto(Windows.Internal.UI.Dialogs.XamlHostedDialog)]
+    [uuid("1AD91754-7CEA-56B3-8010-2C302E3D3B57")]
+    [version(NTDDI_WIN10_CO)]
+    interface IXamlHostedDialog : IInspectable
+    {
+        HostedDialogType DialogType{ get; };
+        UInt64 XamlWindow{ get; };
+        Windows.UI.Xaml.UIElement XamlContent{ get; set; };
+        String Title{ get; set; };
+        String ContentString{ get; set; };
+        void* Commands{ get; };
+        event Windows.Foundation.EventHandler<XamlHostedDialogCommandInvokedArgs> CommandInvoked;
+        UInt32 MaxCommandCount{ get; set; };
+        UInt32 DefaultCommandIndex{ get; set; };
+        UInt32 CancelCommandIndex{ get; set; };
+        void Initialize(Boolean value1, Boolean value2);
+        void Show();
+    }
+
+    [exclusiveto(Windows.Internal.UI.Dialogs.XamlHostedDialog)]
+    [uuid("313E7D83-1CFE-54C9-9FC7-09079606F8C7")]
+    [version(NTDDI_WIN10_CO)]
+    interface IXamlHostedDialogStatics : IInspectable
+    {
+        Windows.Internal.UI.Dialogs.XamlHostedDialog CreateHostedDialog(UInt64 value);
+        Windows.Internal.UI.Dialogs.XamlHostedDialog CreateHostedMessageDialog(UInt64 value);
+    }
+
+    [static(Windows.Internal.UI.Dialogs.IXamlHostedDialogStatics, NTDDI_WIN10_CO)]
+    [version(NTDDI_WIN10_CO)]
+    runtimeclass XamlHostedDialog
+    {
+        [default] interface Windows.Internal.UI.Dialogs.IXamlHostedDialog;
+    }
+}
+```
+
+
+## runtimeclass Windows.Internal.UI.Dialogs.XamlHostedDialog_WinUI3
+
+> [!CAUTION]
+> This interface has been introduced by LCU in Build 26100 since the first half of 2025. If you want use this interface in Build 26100, please install the leatest LCU.
+
+> [!NOTE]
+> - Implementation: winrt::Windows::Internal::UI::Dialogs::implementation::XamlHostedDialog_WinUI3 $\leftarrow$ winrt::implements
+> - Base :
+>     1. interface: IUnknown, IInspectable, IWeakReferenceSource, IAgileObject, IMarshal
+>     2. static: IUnknown, IInspectable, IWeakReferenceSource, IAgileObject, IMarshal, IActivationFactory
+> - Library: Windows.Internal.UI.Dialogs.dll
+
+> [!TIP]
+> The following interfaces are same as Windows.Internal.UI.Dialogs.XamlHostedDialog.
+
+```C#
+namespace Windows.Internal.UI.Dialogs
+{
+    [static(Windows.Internal.UI.Dialogs.IXamlHostedDialogStatics, NTDDI_WIN11_GE)]
+    [version(NTDDI_WIN11_GE)]
+    runtimeclass XamlHostedDialog_WinUI3
+    {
+        [default] interface Windows.Internal.UI.Dialogs.IXamlHostedDialog;
+        interface Windows.Internal.UI.Dialogs.IXamlHostedConfig;
+        interface Windows.Internal.UI.Dialogs.IXamlHostedDialogExtendedContent;
     }
 }
 ```
