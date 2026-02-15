@@ -3,19 +3,25 @@
 ## Enable PackageReference for Native MSVC Project
 
 > [!NOTE]
-> Apply: MSBuild 16+
+> - Apply: MSBuild 16+
+> - Required: Desktop development with C++ workload
 
 ```XML
 <ItemGroup Label="ProjectConfigurations">
   ...
   <ProjectCapability Include="PackageReferences" />
 </ItemGroup>
-<PropertyGroup Label="Globals">
+<PropertyGroup Label="Configuration">
   ...
-  <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
-  <TargetFrameworkIdentifier>native</TargetFrameworkIdentifier>
-  <TargetFrameworkVersion>v0.0</TargetFrameworkVersion>
-  <TargetPlatformIdentifier>windows</TargetPlatformIdentifier>
+  <TargetFramework>native</TargetFramework>
+  <TargetFrameworkIdentifier>$([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)'))</TargetFrameworkIdentifier>
+  <TargetFrameworkVersion>v$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)', 2))</TargetFrameworkVersion>
+  <TargetPlatformIdentifier>$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)'))</TargetPlatformIdentifier>
   <TargetPlatformVersion>$(WindowsTargetPlatformVersion)</TargetPlatformVersion>
+  <TargetFrameworkIdentifier Condition="'$(DesignTimeBuild)' == 'true'">.NETCore</TargetFrameworkIdentifier>
+  <TargetFrameworkVersion Condition="'$(DesignTimeBuild)' == 'true'">v5.0</TargetFrameworkVersion>
+  <!-- TBD... XAML Designer for UWP or Islands 
+    <TargetPlatformIdentifier Condition="'$(DesignTimeBuild)' == 'true' or '$(AppContainerApplication)' == 'true'">UAP</TargetPlatformIdentifier>
+  -->
 </PropertyGroup>
 ```
